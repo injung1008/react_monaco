@@ -32,3 +32,18 @@ export const ArticleMenu = () => (<nav>
 </nav>
 
 )
+
+
+
+export const StockMenu = () => (<nav>
+    <ol>
+        <li><Link to='/stock-list'>종목 리스트</Link></li>
+        <li><Link to='/stock-register'>종목 등록</Link></li>
+        <li><Link to='/stock-retrieve'>종목 조회</Link></li>
+        <li><Link to='/stock-detail'>종목 상세</Link></li>
+        <li><Link to='/stock-modify'>종목 수정</Link></li>
+        <li><Link to='/stock-delete'>종목 삭제</Link></li>
+    </ol>
+</nav>
+
+)
