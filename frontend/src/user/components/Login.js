@@ -4,6 +4,8 @@ const Login = () => {
     return (<>
     <h2>Login Form</h2>
 
+
+
 <form action="/action_page.php" method="post">
   <div className="imgcontainer">
     <img src="https://www.w3schools.com/howto/img_avatar2.png" style={{width: "300px"}} alt="Avatar" className="avatar"/>
