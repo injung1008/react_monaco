@@ -22,12 +22,12 @@ export const ItemMenu = () => (<nav>
 </nav>
 
 )
-export const ArticleMenu = () => (<nav>
+export const BoardMenu = () => (<nav>
     <ol>
-        <li><Link to='/article-list'>게시글 목록</Link></li>
-        <li><Link to='/article-write'>게시글 쓰기</Link></li>
-        <li><Link to='/article-read'>게시글 읽기</Link></li>
-        <li><Link to='/article-remove'>회원정보삭제</Link></li>
+        <li><Link to='/postwrite-list'>게시글 목록</Link></li>
+        <li><Link to='/postwrite'>게시글 쓰기</Link></li>
+        <li><Link to='/postwrite-read'>게시글 읽기</Link></li>
+        <li><Link to='/postwrite-remove'>게시글삭제</Link></li>
     </ol>
 </nav>
 

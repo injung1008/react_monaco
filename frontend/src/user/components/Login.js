@@ -1,36 +1,73 @@
-import React from 'react'
-//import './Login.css'
+import React, { useState } from 'react'
+import './Login.css'
+import { userLogin } from 'api';
+import { useHistory } from 'react-router'
+import { userSignup } from 'api';
+
 const Login = () => {
-    return (<>
-    <h2>Login Form</h2>
+  const history = useHistory()
+  const [tryLogin, serUserLogin] = useState({
+    login_name: '',
+    login_password:''
+  })
+ 
+  
+  const handleSubmit = e => {
+    e.preventDefault()
+    alert(`전송 클릭: ${JSON.stringify({...tryLogin})}`)
+    userLogin({...tryLogin})
+    .then(res => {
+      alert(`로그인 완료 : ${res.data.result} `)
+      // history.push('login')
+      
+    })
+    .catch(err => {
+      alert(`로그인 실패 : ${err} `)
+
+    })
 
 
 
-<form action="/action_page.php" method="post">
-  <div className="imgcontainer">
-    <img src="https://www.w3schools.com/howto/img_avatar2.png" style={{width: "300px"}} alt="Avatar" className="avatar"/>
-  </div>
+  }
 
-  <div className="container">
-    <label labelFor="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required/>
+  const handleClick = e => {
+    e.preventDefault()
+    alert('취소 클릭')
+  }
 
-    <label labelFor="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required/>
-        
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"/> Remember me
-    </label>
-  </div>
+  const handleChange = e => {
+    const { name, value } = e.target
+    serUserLogin({
+      ...tryLogin,
+      [name]: value
+    })
 
-  <div className="container" style={{backgroundColor: "#f1f1f1"}}>
-    <button type="button" className="cancelbtn">Cancel</button>
-    <span className="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
-   
-    </>)
+  }
+  return (<>
+    <div className="Login">
+    <form onSubmit={handleSubmit} method="get" style={{border:"1px solid #ccc"}}>
+      <div className="container">
+        <h1>Login</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr/>
+
+        <label for="login_name"><b>User ID</b></label>
+        <input type="text" placeholder="Enter ID" onChange={handleChange}   name="login_name" value={login_name}/>
+
+        <label for="login_password"><b>Password</b></label>
+        <input type="text" placeholder="Enter Password" onChange={handleChange}  name="login_password" value={login_password}/>
+
+        <p>By creating an account you agree to our <a href="#" style={{color:"dodgerblue"}}>Terms & Privacy</a>.</p>
+
+        <div class="clearfix">
+          <button type="submit" className="signupbtn">Sign Up</button>
+          <button type="button" className="cancelbtn" onClick={handleClick}>Cancel</button>
+          
+        </div>
+      </div>
+  </form>
+</div>
+</>)
 }
 
 export default Login
