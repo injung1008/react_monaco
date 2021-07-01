@@ -62,9 +62,8 @@ const MemberList = () => {
           { members.length != 0
            ? members.map((member) => (
                <TableRow key={member.username}>
-               <TableCell component="th" scope="row">
-               {member.password}
-               </TableCell>
+                 <TableCell component="th" scope="row">{member.username}</TableCell>
+               <TableCell component="th" scope="row">{member.password}</TableCell>
                <TableCell align="right">{member.name}</TableCell>
                <TableCell align="right">{member.email}</TableCell>
            </TableRow>
