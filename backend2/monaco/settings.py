@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^-mt68cg*9n@h0wh1ji9%vwyg=4oj6_z%l*8$#!w@5hll(d29v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -130,6 +130,8 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
 
 
 #AUTH_USER_MODEL = 'user.CustomUser'

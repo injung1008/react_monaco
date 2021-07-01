@@ -4,5 +4,5 @@ from .views import Writes
 
 
 urlpatterns = [
-    url('/write', Writes.as_view()),
+    url('register', Writes.as_view()),
 ]

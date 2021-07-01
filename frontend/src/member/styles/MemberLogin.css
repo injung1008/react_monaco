@@ -1,6 +1,6 @@
-form {border: 3px solid #f1f1f1;}
+.MemberLogin form {border: 3px solid #f1f1f1;}
 
-input[type=text], input[type=password] {
+.MemberLogin input[type=text], .MemberLogin input[type=password] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -9,7 +9,7 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
-button {
+.MemberLogin button {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -19,42 +19,42 @@ button {
   width: 100%;
 }
 
-button:hover {
+.MemberLogin button:hover {
   opacity: 0.8;
 }
 
-.cancelbtn {
+.MemberLogin .cancelbtn {
   width: auto;
   padding: 10px 18px;
   background-color: #f44336;
 }
 
-.imgcontainer {
+.MemberLogin .imgcontainer {
   text-align: center;
   margin: 24px 0 12px 0;
 }
 
-img.avatar {
+.MemberLogin img.avatar {
   width: 40%;
   border-radius: 50%;
 }
 
-.container {
+.MemberLogin .container {
   padding: 16px;
 }
 
-span.psw {
+.MemberLogin span.psw {
   float: right;
   padding-top: 16px;
 }
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
-  span.psw {
+  .MemberLogin span.psw {
      display: block;
      float: none;
   }
-  .cancelbtn {
+  .MemberLogin .cancelbtn {
      width: 100%;
   }
 }

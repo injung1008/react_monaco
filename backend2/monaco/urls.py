@@ -23,13 +23,15 @@ from django.urls import path, include
 # router.register(r'member', views.MemberViewSet)
 # router.register(r'board', views.BoardViewSet)
 from common.views import Connection
-from django.urls import path, include
+from django.conf.urls import include, url
+from django.urls import path
 from rest_framework import routers
-router = routers.DefaultRouter()
+# router = routers.DefaultRouter()
 
 urlpatterns = [
     path('connection', Connection.as_view()),
-    path('board', include('board.urls')),
-    path('member', include('member.urls'))
+    url('api/member/', include('member.urls')),
+    url(r'^api/post/', include('board.urls')),
+    url(r'^adm/member/', include('member.urls')),
 
 ]
