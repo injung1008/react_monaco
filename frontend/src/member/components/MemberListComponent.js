@@ -9,7 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Pagination from '@material-ui/lab/Pagination';
 import { memberList } from 'api'
-import { string } from 'yargs';
+import { Link } from "react-router-dom";
+
 
 const useStyles = makeStyles({
   table: {
@@ -27,7 +28,7 @@ const usePageStyles = makeStyles((theme) => ({
 
 
 
-const MemberList = () => {
+const MemberListComponent = ({ match }) => {
   
   const [members, setMembers] = useState([])
 
@@ -37,15 +38,17 @@ const MemberList = () => {
   useEffect(() => {
     memberList()
     .then(res => {
-        alert(JSON.stringify(res.data))
         setMembers(res.data)
-        console.log(res.data)
-
     })
     .catch(err => {
         console.log(err.data)
     })
   }, [])
+
+  const handleClick = member => {
+    localStorage.setItem("selectedMember", member)
+  }
+
 
   return (<>
     <TableContainer component={Paper}>
@@ -60,14 +63,15 @@ const MemberList = () => {
         </TableHead>
         <TableBody>
           { members.length != 0
-           ? members.map((member) => (
-               <TableRow key={member.username}>
-                 <TableCell component="th" scope="row">{member.username}</TableCell>
-               <TableCell component="th" scope="row">{member.password}</TableCell>
-               <TableCell align="right">{member.name}</TableCell>
-               <TableCell align="right">{member.email}</TableCell>
-           </TableRow>
-           ))
+           ? members.map(({ username, password, name, email }) => (
+               <TableRow key={ username } >
+                 <TableCell align="right">{ username }</TableCell>
+                <TableCell component="th" scope="row">{ password }</TableCell>
+                <TableCell align="right"><Link to={`/member-detail/${ username }`} 
+                onClick={ () => handleClick( JSON.stringify({ username, password, name, email }) )}>{ name }</Link></TableCell>
+                <TableCell align="right">{ email }</TableCell>
+            </TableRow>)
+          )
           :  <TableRow>
           <TableCell component="th" scope="row" colSpan="4">
              <h1>등록된 데이터가 없습니다</h1>
@@ -79,15 +83,12 @@ const MemberList = () => {
       </Table>
     </TableContainer>
     <div className={pageClasses.root}>
-        <Pagination count={10} />
         <Pagination count={10} color="primary" />
-        <Pagination count={10} color="secondary" />
-        <Pagination count={10} disabled />
     </div>
     </>);
 }
 
-export default MemberList
+export default MemberListComponent
 
 /*
  <TableRow key={row.name}>

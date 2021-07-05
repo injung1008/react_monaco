@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import '../styles/MemberRegister.css'
+// import '../styles/MemberRegister.css'
 import { memberRegister } from 'api'
 import { useHistory } from 'react-router'
 
