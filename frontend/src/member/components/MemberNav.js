@@ -79,11 +79,11 @@ const MemberNav = () => {
               <MenuIcon />
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap>
-              <Link to='/home'>Home</Link>&nbsp;&nbsp;
-              <Link to='/member'>Member</Link>&nbsp;&nbsp;
-              <Link to='/item'>Item</Link>&nbsp;&nbsp;
-              <Link to='/board'>Board</Link>&nbsp;&nbsp;
-              <Link to='/stock'>Stock</Link>&nbsp;&nbsp;
+              <Link to='/home'>홈</Link>&nbsp;&nbsp;
+              <Link to='/member'>멤버</Link>&nbsp;&nbsp;
+              <Link to='/item'>아이템</Link>&nbsp;&nbsp;
+              <Link to='/board'>보드</Link>&nbsp;&nbsp;
+              <Link to='/stock'>주식</Link>&nbsp;&nbsp;
             </Typography>
             <div className={classes.search}>
               <div className={classes.searchIcon}>

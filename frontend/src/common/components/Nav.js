@@ -9,6 +9,7 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import { RemoveFromQueue } from '@material-ui/icons';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -63,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 export default function SearchAppBar() {
   const classes = useStyles();
   return (

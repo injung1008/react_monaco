@@ -1,8 +1,14 @@
 import React,{useEffect, useState} from 'react'
 import 'member/styles/MemberDetail.css'
+import { memberDetail } from 'api'
 
 const MemberDetailComponent = () => {
     const [member, setMember] = useState({})
+
+    const handleSubmit = e => {
+      e.preventDefault()
+      const member = JSON.parse(localStorage.getItem("loginedMember"))
+    }
 
 
     useEffect(() => {
@@ -11,7 +17,7 @@ const MemberDetailComponent = () => {
 
     return (<>
               <div className="member-detail-card">
-                <h2 style={{"text-align":"center"}}>회원 정보</h2>
+                <h2 style={{"text-align":"center"}}>회원</h2>
                 <img src="https://www.w3schools.com/w3images/team2.jpg"  style={{"width":"100%"}}/>
                 <h1>{member.name}</h1>
                     <p className="member-detail-title">CEO & Founder, Example</p>

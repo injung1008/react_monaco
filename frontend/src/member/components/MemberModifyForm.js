@@ -1,8 +1,11 @@
-import React,{useEffect, useState} from 'react'
+import React,{useState} from 'react'
 import 'member/styles/MemberDetail.css'
+import { useHistory } from 'react-router'
 import { memberModify } from 'api'
+
 const MemberModifyForm = () => {
     const [changedPassword, setChangedPassword] = useState('')
+    const history = useHistory()
 
 
     const handleSubmit = e => {
@@ -15,8 +18,8 @@ const MemberModifyForm = () => {
       memberModify({member})
       .then(res => {
         alert(`비밀번호 수정 완료 : ${res.data.result} `)
-        localStorage.setItem("loginedMember", res.data.result)
-        // history.push('login')
+        localStorage.setItem("loginedMember", JSON.stringify(member))
+        history.push('/member-list')
         
       })
       .catch(err => {

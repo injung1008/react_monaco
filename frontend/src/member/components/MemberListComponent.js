@@ -31,7 +31,7 @@ const usePageStyles = makeStyles((theme) => ({
 const MemberListComponent = ({ match }) => {
   
   const [members, setMembers] = useState([])
-
+  
   const classes = useStyles();
   const pageClasses = usePageStyles();
 
@@ -65,9 +65,9 @@ const MemberListComponent = ({ match }) => {
           { members.length != 0
            ? members.map(({ username, password, name, email }) => (
                <TableRow key={ username } >
-                 <TableCell align="right">{ username }</TableCell>
+                 <TableCell align="middle">{ username }</TableCell>
                 <TableCell component="th" scope="row">{ password }</TableCell>
-                <TableCell align="right"><Link to={`/member-detail/${ username }`} 
+                <TableCell align="middle"><Link to={`/member-detail/${ username }`} 
                 onClick={ () => handleClick( JSON.stringify({ username, password, name, email }) )}>{ name }</Link></TableCell>
                 <TableCell align="right">{ email }</TableCell>
             </TableRow>)

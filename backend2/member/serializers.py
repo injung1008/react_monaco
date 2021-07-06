@@ -2,10 +2,12 @@ from rest_framework import serializers
 from .models import MemberVO as member
 
 class MemberSerializer(serializers.Serializer):
+
     username = serializers.CharField()
     password = serializers.CharField()
     name = serializers.CharField()
     email = serializers.EmailField()
+
     class Meta:
         model = member
         fields = '__all__'

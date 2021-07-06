@@ -8,8 +8,8 @@ const MemberDetail = () => {
     <Nav/>
       <table style={{width: '100%', height: '100%'}}>
           <tr>
-              <td style={{width: '20%'}}> <Menu/> </td>
-              <td style={{width: '80%'}}> <MemberDetailComponent/> </td>
+              <td style={{width: '30%'}}> <Menu/> </td>
+              <td style={{width: '100%'}}> <MemberDetailComponent/> </td>
           </tr>
       </table>
     </>)
